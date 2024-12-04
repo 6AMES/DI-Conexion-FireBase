@@ -1,10 +1,36 @@
 header {
-    margin: 1rem 1rem 0rem 1rem;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
 }
 
-div {
-    background-color: #303030;
-    border-radius: 1.5rem;
-    width: 100%;
+.header-container {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 50rem;
     height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#title {
+    font-family: "Erica One";
+    font-size: 30px;
+}
+
+.link {
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
 }
