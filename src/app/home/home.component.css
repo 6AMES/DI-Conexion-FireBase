@@ -1,13 +1,11 @@
 main > .title {
-    margin: 0 25%;
+    margin: 100px 27.5%;
     text-align: center;
-    height: 90vh;
-    margin-top: 100px;
 }
 
 .title > span {
     font-family: "Erica one";
-    font-size: 8vw;
+    font-size: clamp(40px, 8vw, 125px);
     color: #f8c1ba;
     margin: 0;
     line-height: 20vh;
@@ -24,7 +22,7 @@ main > .title {
 
 .offers > .title > span {
     font-family: "Erica one";
-    font-size: 5vw;
+    font-size: clamp(40px, 5vw, 80px);
     color: #f9cc73;
 }
 
@@ -48,6 +46,29 @@ main > .title {
 
 .offer-container > span {
     font-family: "Erica one";
-    font-size: 3vw;
+    font-size: clamp(30px, 3vw, 50px);
     text-align: center;
+}
+
+@media screen and (max-width: 1700px) {
+    main > .title {
+        margin: 100px 20%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .title > span {
+        line-height: 15vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main > .title {
+        margin: 100px 10%;
+        text-align: center;
+    }
+
+    .title > span {
+        line-height: 10vh;
+    }
 }

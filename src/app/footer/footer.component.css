@@ -14,7 +14,7 @@ footer {
 
 .title > span {
     font-family: "Erica One";
-    font-size: 5vw;
+    font-size: clamp(20px, 5vw, 125px);
     color: #f8c1ba;
     width: 80%;
 }
@@ -40,7 +40,7 @@ footer {
 
 .links > ul > li > a {
     font-family: "Erica One";
-    font-size: 2vw;
+    font-size: clamp(10px, 2vw, 20px);
     color: white;
     text-decoration: none;
 }
@@ -66,7 +66,7 @@ select {
     border-radius: 5px;
     font-family: Verdana;
     font-weight: bold;
-    font-size: 12px;
+    font-size: clamp(10px, 1.5vw, 14px);
     color: black;
 }
 
@@ -102,10 +102,8 @@ select {
     border: 3px solid black;
     border-radius: 100%;
     background-color: black;
-    width: 5vw;
-    height: 5vh;
-    max-width: 48px;
-    max-height: 48px;
+    width: clamp(24px, 5vw, 48px);
+    height: clamp(24px, 5vw, 48px);
 }
 
 ul {
@@ -121,15 +119,14 @@ li {
 .cookies > ul > li > a {
     font-family: Verdana;
     font-weight: bold;
-    font-size: 12px;
+    font-size: clamp(10px, 1.5vw, 14px);
     color: white;
     text-decoration: none;
 }
 
 @media screen and (max-width: 992px) {
-    .social > a > svg {
-        border: none !important;
-        background-color: transparent !important;
+    .social {
+        display: none;
     }
     
     .selectors {

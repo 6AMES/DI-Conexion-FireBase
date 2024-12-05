@@ -32,6 +32,7 @@ export class OfreceEmpComponent {
     push(usersRef ,{ empresa, contacto, vacante, requisitos, ubicacion, salario })
     .then(() =>{
       console.log("Metido")
+      this.form.reset();
     })
     
   }

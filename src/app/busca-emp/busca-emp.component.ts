@@ -30,6 +30,7 @@ export class BuscaEmpComponent {
     push(usersRef ,{ nombre, email, telefono, habilidades, experiencia })
     .then(() =>{
       console.log("Metido")
+      this.form.reset();
     })
     
   }

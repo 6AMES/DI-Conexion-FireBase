@@ -25,12 +25,12 @@ a {
 
 #title {
     font-family: "Erica One";
-    font-size: 3vw;
+    font-size: clamp(20px, 4vw, 30px);
 }
 
 .link {
     font-family: Verdana;
     font-weight: bold;
-    font-size: 12px;
+    font-size: clamp(10px, 2vw, 12px);
     text-transform: uppercase;
 }
