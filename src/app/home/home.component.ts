@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { firebaseConfig } from '../environment';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  constructor() {
+    console.log('Firebase initialized:', firebaseConfig);
+  }
 }

@@ -1,21 +1,21 @@
 <main>
     <div class="form-container">
         <span>Buscar Empleo</span>
-        <form id="buscar-empleo">
+        <form id="buscar-empleo" [formGroup]="form" (ngSubmit)="meter()">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" placeholder="" required>
+            <input type="text" id="nombre" formControlName="nombre" placeholder="" required>
         
             <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" name="email" placeholder="" required>
+            <input type="email" id="email" formControlName="email" placeholder="" required>
         
             <label for="telefono">Número de Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="" required>
+            <input type="tel" id="telefono" formControlName="telefono" placeholder="" required>
         
             <label for="habilidades">Habilidades</label>
-            <textarea id="habilidades" name="habilidades" rows="4" placeholder="" required></textarea>
+            <textarea id="habilidades" formControlName="habilidades" rows="12" placeholder="" required></textarea>
         
             <label for="experiencia">Años de Experiencia</label>
-            <select id="experiencia" name="experiencia" required>
+            <select id="experiencia" formControlName="experiencia" required>
                 <option value="" disabled selected>Selecciona tu experiencia</option>
                 <option value="0-1">0-1 años</option>
                 <option value="2-3">2-3 años</option>

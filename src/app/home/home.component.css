@@ -7,10 +7,10 @@ main > .title {
 
 .title > span {
     font-family: "Erica one";
-    font-size: 150px;
+    font-size: 8vw;
     color: #f8c1ba;
     margin: 0;
-    line-height: 200px;
+    line-height: 20vh;
 }
 
 .offers {
@@ -24,7 +24,7 @@ main > .title {
 
 .offers > .title > span {
     font-family: "Erica one";
-    font-size: 80px;
+    font-size: 5vw;
     color: #f9cc73;
 }
 
@@ -48,6 +48,6 @@ main > .title {
 
 .offer-container > span {
     font-family: "Erica one";
-    font-size: 80px;
+    font-size: 3vw;
     text-align: center;
 }

@@ -1,24 +1,21 @@
 <main>
     <div class="form-container">
         <span>Ofrece Empleo</span>
-        <form id="ofrecer-empleo">
+        <form id="ofrecer-empleo" [formGroup]="form" (ngSubmit)="meter()">
             <label for="empresa">Nombre de la Empresa</label>
-            <input type="text" id="empresa" name="empresa" placeholder="" required>
+            <input type="text" id="empresa" formControlName="empresa" placeholder="" required>
         
             <label for="contacto">Correo de Contacto</label>
-            <input type="email" id="contacto" name="contacto" placeholder="" required>
-        
-            <label for="telefono-empresa">Teléfono de Contacto</label>
-            <input type="tel" id="telefono-empresa" name="telefono-empresa" placeholder="" required>
+            <input type="email" id="contacto" formControlName="contacto" placeholder="" required>
         
             <label for="vacante">Descripción de la Vacante</label>
-            <textarea id="vacante" name="vacante" rows="4" placeholder="" required></textarea>
+            <textarea id="vacante" formControlName="vacante" rows="4" placeholder="" required></textarea>
         
             <label for="requisitos">Requisitos</label>
-            <textarea id="requisitos" name="requisitos" rows="3" placeholder="" required></textarea>
+            <textarea id="requisitos" formControlName="requisitos" rows="4" placeholder="" required></textarea>
         
             <label for="ubicacion">Ubicación</label>
-            <select id="ubicacion" name="ubicacion" required>
+            <select id="ubicacion" formControlName="ubicacion" required>
                 <option value="" disabled selected>Selecciona la ubicación</option>
                 <option value="remoto">Remoto</option>
                 <option value="presencial">Presencial</option>
@@ -26,9 +23,9 @@
             </select>
         
             <label for="salario">Rango Salarial (Opcional)</label>
-            <input type="text" id="salario" name="salario" placeholder="">
+            <input type="text" id="salario" formControlName="salario" placeholder="">
         
-            <button type="submit">Publicar</button>
+            <button type="submit" >Publicar</button>
         </form>
     </div>
 </main>
