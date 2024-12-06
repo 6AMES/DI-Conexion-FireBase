@@ -1,13 +1,19 @@
 <header>
     <div class="header-container">
-        <a [routerLink]="['/buscaEmp']" class="link">
-            Busca Empleo
-        </a>
-        <a href="" id="title">
-            <span>Flying Jobs</span>
-        </a>
-        <a [routerLink]="['/ofreceEmp']" class="link">
-            Ofrece Empleo
-        </a>
+        <div class="animations">
+            <a [routerLink]="['/buscaEmp']" class="link" data-text="Busca Empleo">
+                Busca Empleo
+            </a>
+        </div>
+        <div class="title">
+            <a href="" id="title">
+                <span>Flying Jobs</span>
+            </a>
+        </div>
+        <div class="animations">
+            <a [routerLink]="['/ofreceEmp']" class="link" data-text="Ofrece Empleo">
+                Ofrece Empleo
+            </a>
+        </div>
     </div>
 </header>
