@@ -54,29 +54,3 @@ a {
     height: 100%;
     justify-content: center;
 }
-
-.animations:hover {
-    transform: translateY(-100%);
-}
-
-.link::after {
-    content: attr(data-text);
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    color: black;
-    transform: translateY(100%);
-    transition: transform 0.3s ease-in-out;
-    pointer-events: none;
-}
-
-.link:hover::after {
-    transform: translateY(100%);
-}
-
-.link:hover::before {
-    transform: translateY(-200%);
-}
