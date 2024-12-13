@@ -6,6 +6,7 @@ header {
     align-items: center;
     margin: 1rem 0;
     overflow: hidden;
+    z-index: 100;
 }
 
 .header-container {

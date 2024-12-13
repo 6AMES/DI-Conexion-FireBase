@@ -9,11 +9,23 @@
             {{item.salario}}
         </ng-template>
         <ng-template ngIf="Solicitudes">
-            {{item.nombre}}
-            {{item.email}}
-            {{item.telefono}}
-            {{item.habilidades}}
-            {{item.experiencia}}
+            <div class="left">
+                <div class="contact">
+                    <span class="subtitle">Nombre:</span>
+                    <span>{{item.nombre}}</span>
+                    <span class="subtitle">Contacto:</span>
+                    <span>{{item.email}}</span>
+                    <span>{{item.telefono}}</span>
+                </div>
+                <div class="experience">
+                    <span class="subtitle">Experiencia:</span>
+                    <span>{{item.experiencia}}</span>
+                </div>
+            </div>
+            <div class="abilities">
+                <span class="subtitle">Resumen:</span>
+                <span>{{item.habilidades}}</span>
+            </div>
         </ng-template>
     </li>
 </ul>
