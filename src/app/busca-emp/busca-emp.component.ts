@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Database, ref, push } from '@angular/fire/database';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
+import { OferSoliComponent } from '../ofer-soli/ofer-soli.component';
 
 @Component({
   selector: 'app-ofrece-emp',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, OferSoliComponent],
   templateUrl: './busca-emp.component.html',
   styleUrl: './busca-emp.component.css',
   providers: [FormBuilder]
 })
 
-export class BuscaEmpComponent {
+export class BuscaEmpComponent implements OnInit {
   form: FormGroup
+  tabla: string = ''
 
   constructor(private db: Database, private fb: FormBuilder){
     this.form = this.fb.group({
@@ -22,6 +24,10 @@ export class BuscaEmpComponent {
       habilidades: ['', Validators.required],
       experiencia: ['', Validators.required],
     })
+  }
+
+  ngOnInit(): void {
+    this.tabla = "Ofertas"
   }
 
   meter(){

@@ -1,5 +1,5 @@
 <main>
-    <div class="form-container">
+    <section class="form-container">
         <span>Buscar Empleo</span>
         <form id="buscar-empleo" [formGroup]="form" (ngSubmit)="meter()">
             <label for="nombre">Nombre</label>
@@ -24,5 +24,10 @@
         
             <button type="submit">Enviar</button>
         </form>
-    </div>
+    </section>
+
+    <section class="ofer-soli">
+        <span class="title">ÚLTIMAS OFERTAS</span>
+        <app-ofer-soli [tabla]="tabla"/>
+    </section>
 </main>

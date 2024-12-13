@@ -1,5 +1,5 @@
 <main>
-    <div class="form-container">
+    <section class="form-container">
         <span>Ofrece Empleo</span>
         <form id="ofrecer-empleo" [formGroup]="form" (ngSubmit)="meter()">
             <label for="empresa">Nombre de la Empresa</label>
@@ -27,5 +27,10 @@
         
             <button type="submit" >Publicar</button>
         </form>
-    </div>
+    </section>
+
+    <section class="ofer-soli">
+        <span class="title">ÚLTIMAS SOLICITUDES</span>
+        <app-ofer-soli [tabla]="tabla"/>
+    </section>
 </main>
