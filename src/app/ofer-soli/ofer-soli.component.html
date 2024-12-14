@@ -1,20 +1,40 @@
 <ul>
     <li class="lista" *ngFor="let item of items">
-        <ng-template ngIf="Ofertas">
-            {{item.empresa}}
-            {{item.contacto}}
-            {{item.vacante}}
-            {{item.ubicacion}}
-            {{item.requisitos}}
-            {{item.salario}}
-        </ng-template>
-        <ng-template ngIf="Solicitudes">
+        <ng-container *ngIf="oferta">
+            <div class="left">
+                <div class="contact">
+                    <span class="subtitle">Empresa:</span>
+                    <span>{{item.empresa}}</span>
+                    <span class="subtitle">Contacto:</span>
+                    <span>{{item.contacto}}</span>
+                    <span class="subtitle">Ubicación:</span>
+                    <span class="ubicacion">{{item.ubicacion}}</span>
+                </div>
+                <div class="experience">
+                    <span class="subtitle">Salario:</span>
+                    <span>{{item.salario}}</span>
+                </div>
+            </div>
+            <div class="right">
+                <div class="abilities">
+                    <span class="subtitle">Resumen:</span>
+                    <span class="text">{{item.vacante}}</span>
+                    <span class="subtitle">Requisitos:</span>
+                    <span class="text">{{item.requisitos}}</span>
+                </div>
+                <div class="interested">
+                    <button>Interesado</button>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="solicitud">
             <div class="left">
                 <div class="contact">
                     <span class="subtitle">Nombre:</span>
                     <span>{{item.nombre}}</span>
                     <span class="subtitle">Contacto:</span>
                     <span>{{item.email}}</span>
+                    <br>
                     <span>{{item.telefono}}</span>
                 </div>
                 <div class="experience">
@@ -22,10 +42,15 @@
                     <span>{{item.experiencia}}</span>
                 </div>
             </div>
-            <div class="abilities">
-                <span class="subtitle">Resumen:</span>
-                <span>{{item.habilidades}}</span>
+            <div class="right">
+                <div class="abilities">
+                    <span class="subtitle">Resumen:</span>
+                    <span class="text">{{item.habilidades}}</span>
+                </div>
+                <div class="interested">
+                    <button>Interesado</button>
+                </div>
             </div>
-        </ng-template>
+        </ng-container>
     </li>
 </ul>

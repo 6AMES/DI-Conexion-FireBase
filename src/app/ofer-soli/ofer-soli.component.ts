@@ -16,13 +16,7 @@ export class OferSoliComponent implements OnInit {
   solicitud: boolean = false
 
   constructor(private databaseServiceService: DatabaseServiceService) {
-    if (this.tabla == 'ofertas') {
-      this.oferta = true
-      this.solicitud = false
-    } else if (this.tabla == 'solicitudes') {
-      this.oferta = false
-      this.solicitud = true
-    }
+    
   }
 
   ngOnInit(): void {
@@ -34,5 +28,13 @@ export class OferSoliComponent implements OnInit {
         console.error('Error: ', err);
       }
     });
+
+    if (this.tabla == 'Ofertas') {
+      this.oferta = true
+      this.solicitud = false
+    } else if (this.tabla == 'Solicitudes') {
+      this.oferta = false
+      this.solicitud = true
+    }
   }
 }

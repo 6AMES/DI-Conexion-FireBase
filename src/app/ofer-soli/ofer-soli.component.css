@@ -10,18 +10,18 @@ li {
     background-color: white;
     list-style: none;
     width: 100%;
-    height: 20rem;
+    height: 22.5rem;
     border: 3px solid black;
     border-radius: 5px;
     box-sizing: border-box;
     display: flex;
     font-family: Verdana;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .left {
-    width: 50%;
     padding: 1rem;
+    width: 100%;
 }
 
 .contact {
@@ -42,11 +42,47 @@ li {
 .subtitle {
     font-family: "Erica One";
     font-size: medium;
+    font-size: 22px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
 }
 
 .abilities {
-    width: 50%;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
+    height: 75%;
+}
+
+.abilities > .text {
+    overflow: auto;
+}
+
+button {
+    width: 100%;
+    height: 3rem;
+    background-color: white;
+    font-family: "Erica One";
+    font-size: 20px;
+    color: black;
+    border: 3px solid black;
+    border-radius: 30px;
+    box-shadow: 0 5px 0 black;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 5px;
+}
+
+button:hover {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 black;
+}
+
+.ubicacion {
+    text-transform: capitalize;
 }
