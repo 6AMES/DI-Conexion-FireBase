@@ -1,39 +1,74 @@
 <main>
     <section class="title">
-        <span>ENCUENTRA EL EMPLEO DE TUS SUEÑOS</span>
+      <span>ENCUENTRA EL EMPLEO DE TUS SUEÑOS</span>
+    </section>
+    
+    <section class="offers">
+      <div class="title">
+        <span>ÚLTIMAS OFERTAS</span>
+      </div>
+      <ul class="blocks">
+        <li class="offer-container" *ngFor="let item of ofertas.slice(-3).reverse()">
+          <div class="left">
+            <div class="contact">
+              <span class="subtitle">Empresa:</span>
+              <span>{{item.empresa}}</span>
+              <span class="subtitle">Contacto:</span>
+              <span>{{item.contacto}}</span>
+              <span class="subtitle">Ubicación:</span>
+              <span class="ubicacion">{{item.ubicacion}}</span>
+            </div>
+            <div class="experience">
+              <span class="subtitle">Salario:</span>
+              <span>{{item.salario}}</span>
+            </div>
+          </div>
+          <div class="right">
+            <div class="abilities">
+              <span class="subtitle">Resumen:</span>
+              <span class="text">{{item.vacante}}</span>
+              <span class="subtitle">Requisitos:</span>
+              <span class="text">{{item.requisitos}}</span>
+            </div>
+            <div class="interested">
+              <button>Interesado</button>
+            </div>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <section class="offers">
-        <div class="title">
-            <span>ÚLTIMAS OFERTAS</span>
-        </div>
-        <div class="blocks">
-            <div class="offer-container">
-                <span>EN ESPERA DE NUEVAS OFERTAS</span>
+      <div class="title">
+        <span>ÚLTIMAS SOLICITUDES</span>
+      </div>
+      <ul class="blocks">
+        <li class="offer-container" *ngFor="let item of solicitudes.slice(-3).reverse()">
+          <div class="left">
+            <div class="contact">
+              <span class="subtitle">Nombre:</span>
+              <span>{{item.nombre}}</span>
+              <span class="subtitle">Contacto:</span>
+              <span>{{item.email}}</span>
+              <br />
+              <span>{{item.telefono}}</span>
             </div>
-            <div class="offer-container">
-                <span>EN ESPERA DE NUEVAS OFERTAS</span>
+            <div class="experience">
+              <span class="subtitle">Experiencia:</span>
+              <span>{{item.experiencia}}</span>
             </div>
-            <div class="offer-container">
-                <span>EN ESPERA DE NUEVAS OFERTAS</span>
+          </div>
+          <div class="right">
+            <div class="abilities">
+              <span class="subtitle">Resumen:</span>
+              <span class="text">{{item.habilidades}}</span>
             </div>
-        </div>
+            <div class="interested">
+              <button>Interesado</button>
+            </div>
+          </div>
+        </li>
+      </ul>
     </section>
-
-    <section class="offers">
-        <div class="title">
-            <span>ÚLTIMAS SOLICITUDES</span>
-        </div>
-        <div class="blocks">
-            <div class="offer-container">
-                <span>EN ESPERA DE NUEVAS SOLICITUDES</span>
-            </div>
-            <div class="offer-container">
-                <span>EN ESPERA DE NUEVAS SOLICITUDES</span>
-            </div>
-            <div class="offer-container">
-                <span>EN ESPERA DE NUEVAS SOLICITUDES</span>
-            </div>
-        </div>
-    </section>
-</main>
+  </main>
+  

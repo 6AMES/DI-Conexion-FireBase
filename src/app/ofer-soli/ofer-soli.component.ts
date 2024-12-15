@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './ofer-soli.component.html',
   styleUrl: './ofer-soli.component.css'
 })
+
 export class OferSoliComponent implements OnInit {
   @Input() tabla: any = ''
   items: any[] = []
