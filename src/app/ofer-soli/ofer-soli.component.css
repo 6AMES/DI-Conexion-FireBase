@@ -86,3 +86,15 @@ button:hover {
 .ubicacion {
     text-transform: capitalize;
 }
+
+.filters {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.oferta, .solicitud {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+}
