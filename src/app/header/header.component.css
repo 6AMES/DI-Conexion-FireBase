@@ -16,7 +16,6 @@ header {
     width: 50rem;
     height: 50px;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     position: relative;
 }
@@ -54,4 +53,134 @@ a {
     width: 100%;
     height: 100%;
     justify-content: center;
+}
+
+.social {
+    position: absolute;
+    right: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.social > button {
+    border: none;
+    background-color: transparent;
+    height: 50px;
+    padding: 0;
+}
+
+.social > button > svg {
+    border: 3px solid black;
+    border-radius: 100%;
+    background-color: white;
+    width: clamp(25px, 5vw, 50px);
+    height: clamp(25px, 5vw, 50px);
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: white;
+    margin: auto;
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 500px;
+    cursor: default;
+}
+
+.container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-title {
+    font-family: "Erica One";
+    font-size: 50px;
+    text-align: center;
+    margin: 20px 0;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    min-height: 2.5rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-family: Verdana;
+}
+
+label {
+    width: 100%;
+    display: block;
+    margin-bottom: 8px;
+    color: black;
+    font-family: "Erica One";
+    font-weight: normal;
+}
+
+p {
+    font-family: Verdana;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.link-crear {
+    font-family: "Erica One";
+    display: contents;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.clearfix {
+    display: flex;
+    justify-content: space-around;
+}
+
+.signupbtn {
+    float: left;
+    width: 40%;
+    height: 3rem;
+    background-color: white;
+    font-family: "Erica One";
+    font-size: 20px;
+    color: black;
+    border: 3px solid black;
+    border-radius: 30px;
+    box-shadow: 0 5px 0 black;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 5px;
+}
+
+.signupbtn:hover {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 black;
+}
+
+#signup {
+    flex-direction: column;
+    align-items: center;
+}
+
+#signin {
+    flex-direction: column;
+    align-items: center;
 }

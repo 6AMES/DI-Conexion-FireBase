@@ -23,14 +23,14 @@
             </select>
         
             <label for="salario">Salario</label>
-            <input type="text" id="salario" formControlName="salario" placeholder="">
+            <input type="text" id="salario" formControlName="salario" placeholder="" required>
         
-            <button type="submit" >Publicar</button>
+            <button type="submit" [disabled]="form.invalid">Publicar</button>
         </form>
     </section>
 
     <section class="ofer-soli">
-        <span class="title">ÚLTIMAS SOLICITUDES</span>
+        <span class="title">SOLICITUDES</span>
         <app-ofer-soli [tabla]="tabla"/>
     </section>
 </main>

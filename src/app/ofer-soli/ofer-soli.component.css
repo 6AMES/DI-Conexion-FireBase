@@ -1,7 +1,7 @@
 ul {
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
     gap: 1rem;
     margin: 1rem;
 }
@@ -17,6 +17,12 @@ li {
     display: flex;
     font-family: Verdana;
     font-size: 16px;
+    cursor: default;
+    transition: all 0.3s ease-in-out;
+}
+
+li:hover {
+    transform: scale(1.02);
 }
 
 .left {
@@ -95,6 +101,29 @@ button:hover {
 
 .oferta, .solicitud {
     display: flex;
-    width: 400px;
-    justify-content: space-between;
+}
+
+#experiencia, #ubicacion, #vacante, #habilidades {
+    background-color: white;
+    font-family: "Erica One";
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    border: 3px solid black;
+    border-radius: 30px;
+    box-shadow: 0 5px 0 black;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 5px;
+    margin: .5rem;
+}
+
+#vacante, #habilidades {
+    cursor: text;
+}
+
+#experiencia:hover, #ubicacion:hover,
+#vacante:hover, #habilidades:hover {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 black;
 }

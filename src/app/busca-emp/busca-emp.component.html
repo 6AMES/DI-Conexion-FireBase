@@ -22,12 +22,12 @@
                 <option value="4+">4 años o más</option>
             </select>
         
-            <button type="submit">Enviar</button>
+            <button type="submit" [disabled]="form.invalid">Enviar</button>
         </form>
     </section>
 
     <section class="ofer-soli">
-        <span class="title">ÚLTIMAS OFERTAS</span>
+        <span class="title">OFERTAS</span>
         <app-ofer-soli [tabla]="tabla"/>
     </section>
 </main>
