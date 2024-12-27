@@ -1,83 +1,116 @@
-import { Component, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
-import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
-  providers: [FormBuilder]
+  styleUrl: './header.component.css'
 })
+export class HeaderComponent {
+  private fb1 = inject(FormBuilder);
+  private fb2 = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-export class HeaderComponent implements AfterViewInit {
-  emailIn = '';
-  passwordIn = '';
-  emailOn = '';
-  passwordOn = '';
-  repeatPassword = '';
-  form: FormGroup;
+  form1: FormGroup;
   form2: FormGroup;
+  errorMessage: string = '';
 
-  private modal: HTMLElement | null = null;
+  isModalVisible: boolean = false;
+  isSignInForm: boolean = true;
 
-  constructor(
-    private elementRef: ElementRef,
-    private renderer: Renderer2,
-    private authService: AuthService,
-    private router: Router,
-    private fb: FormBuilder,
-    private fb2: FormBuilder
-  ) {
-    this.form = this.fb.group({
-      email: [''], 
-      password: [''] 
+  constructor() {
+    this.form1 = this.fb1.group({
+      email1: ['', [Validators.required, Validators.email]],
+      password1: ['', [Validators.required, Validators.minLength(6)]]
     });
+
     this.form2 = this.fb2.group({
-      emailOn: [''],
-      passwordOn: [''],
-      passwordOn2: ['']
-    })
+      email2: ['', [Validators.required, Validators.email]],
+      password2: ['', [Validators.required, Validators.minLength(6)]],
+      passwordVerification: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
-  ngAfterViewInit() {
-    this.modal = this.elementRef.nativeElement.querySelector('#signupin');
-    if (this.modal) {
-      this.renderer.listen(window, 'click', (event: Event) => {
-        if (event.target === this.modal && this.modal) {
-          this.modal.style.display = 'none';
+  login() {
+    if (this.form1.valid) {
+      const email = this.form1.get('email1')?.value;
+      const password = this.form1.get('password1')?.value;
+  
+      this.authService.login(email, password).subscribe({
+        next: () => {
+          this.closeModal();
+          this.router.navigate(['/account']);
+          this.form1.reset();
+        },
+        error: (error) => {
+          this.errorMessage = this.getErrorMessage(error.code);
+          console.error('Error en login:', error);
         }
       });
     }
   }
 
-  login() {
-    const {email, password} = this.form.value;
-    this.authService.login(email, password)
-      .then(() => {
-        alert('Inicio de sesión exitoso');
-        this.modal!.style.display = 'none';
-        this.router.navigate(['/home']);
-        this.form.reset();
-      })
-      .catch(err => alert('Error al iniciar sesión: ' + err.message));
+  register() {
+    if (this.form2.valid) {
+      const { email2, password2, passwordVerification } = this.form2.value;
+  
+      if (password2 !== passwordVerification) {
+        this.errorMessage = 'Las contraseñas no coinciden.';
+        return;
+      }
+  
+      this.authService.register(email2, password2, { email: email2 }).subscribe({
+        next: () => {
+          this.closeModal();
+          this.router.navigate(['/account']);
+          this.form2.reset();
+        },
+        error: (error) => {
+          this.errorMessage = this.getErrorMessage(error.code);
+        }
+      });
+    }
   }
 
-  register() {
-    const {emailOn, passwordOn, passwordOn2} = this.form2.value;
-    if (passwordOn !== passwordOn2) {
-      alert('Las contraseñas no coinciden');
-      return;
+  private getErrorMessage(errorCode: string): string {
+    switch(errorCode) {
+      case 'auth/user-not-found':
+        return 'No se encontró un usuario con este correo electrónico.';
+      case 'auth/wrong-password':
+        return 'Contraseña incorrecta.';
+      case 'auth/invalid-email':
+        return 'Correo electrónico inválido.';
+      case 'auth/too-many-requests':
+        return 'Demasiados intentos. Intenta nuevamente más tarde.';
+      default:
+        return 'Ocurrió un error. Por favor, intenta nuevamente.';
     }
-    this.authService.register(emailOn, passwordOn)
-      .then(() => {
-        alert('Cuenta creada exitosamente');
-        this.modal!.style.display = 'none';
-        this.router.navigate(['/home']);
-        this.form2.reset();
-      })
-      .catch(err => alert('Error al registrar cuenta: ' + err.message));
+  }
+
+  toggleModal(isSignIn: boolean): void {
+    this.isModalVisible = true;
+    this.isSignInForm = isSignIn;
+    this.form1.reset();
+    this.form2.reset();
+  }
+  
+  closeModal(): void {
+    this.isModalVisible = false;
+  }
+
+  checkAuth(): void {
+    this.authService.isAuthenticated().subscribe((isAuth) => {
+      if (isAuth) {
+        this.router.navigate(['/account']);
+      } else {
+        this.toggleModal(true);
+      }
+    });
   }
 }
