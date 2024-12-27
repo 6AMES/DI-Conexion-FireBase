@@ -1,28 +1,40 @@
-import { Component, OnInit, inject} from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [RouterModule],
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
 })
-
 export class AccountComponent implements OnInit {
   private router = inject(Router);
+  private authService = inject(AuthService);
   
   user: any = null;
 
-  constructor(private authService: AuthService) {}
+  constructor() {}
 
   ngOnInit() {
-    
+    this.authService.getCurrentUser().subscribe({
+      next: (user) => {
+        this.user = user;
+      },
+      error: (error) => {
+        console.error("Error al obtener el usuario", error);
+      }
+    });
   }
 
   logout() {
-    this.authService.logout();
-    this.router.navigate(['/home']);
+    this.authService.logout().subscribe({
+      next: () => {
+        this.router.navigate(['/home']);
+      },
+      error: (error) => {
+        console.error("Error al cerrar sesión", error);
+      }
+    });
   }
 }
